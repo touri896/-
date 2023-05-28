@@ -16,7 +16,7 @@ namespace селюк
 
         public void UdelejKulku(Form form) //co mam delat s tema picture boxama jak se sekaj 
         {
-            kulka.BackColor = Color.Green;  //xxxd jako me to taky napadlo no 
+            kulka.BackColor = Color.Orange;  //xxxd jako me to taky napadlo no 
             kulka.Size = new Size(5, 5);
             kulka.Tag = "kulka";
             kulka.Left = kulkaDoleva;
@@ -49,7 +49,7 @@ namespace селюк
                 kulka.Top += rychlost;
             }
 
-            if (kulka.Left < 10 || kulka.Left > 860 || kulka.Top < 10 || kulka.Top > 600)
+            if (kulka.Left < 10 || kulka.Left > 1132 || kulka.Top < 10 || kulka.Top > 600)
             {
                 timerkulka.Stop();
                 timerkulka.Dispose();
