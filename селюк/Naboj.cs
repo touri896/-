@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace селюк
 {
-    internal class Naboj    
+    internal class Naboj
     {
-        public string direction;
-        public int kulkaDoleva;
-        public int kulkaDoprava;
+        public string direction = "up";
+        public int kulkaDoleva = 0;
+        public int kulkaDoprava = 0;
 
-        private int rychlost;
-        private PictureBox kulka = new PictureBox(); 
-        private System.Windows.Forms.Timer timerkulka = new System.Windows.Forms.Timer();
+        private int rychlost = 5;
+        private PictureBox kulka = new PictureBox();
+        private System.Windows.Forms.Timer timerkulka = new System.Windows.Forms.Timer(); //neni problem v timeru? jj ja nevim no XD
 
-        public void UdelejKulku(Form form)
+        public void UdelejKulku(Form form) //co mam delat s tema picture boxama jak se sekaj 
         {
-            kulka.BackColor = Color.White;
+            kulka.BackColor = Color.Green;  //xxxd jako me to taky napadlo no 
             kulka.Size = new Size(5, 5);
             kulka.Tag = "kulka";
             kulka.Left = kulkaDoleva;
@@ -30,11 +26,11 @@ namespace селюк
             form.Controls.Add(kulka);
 
             timerkulka.Interval = rychlost;
-            timerkulka.Tick += timerkulkaEvent;
+            timerkulka.Tick += TimerkulkaEvent;
             timerkulka.Enabled = true;
         }
-
-        private void timerkulkaEvent(object sender, EventArgs e) //me prestal fungovat i pohyb wtf, a btw kdyz zmacknu mezernik tak spadne to okno 
+         
+        private void TimerkulkaEvent(object sender, EventArgs e) //shamoona  kdekoliv, narandom to prestane fungovat. ted to pustim a koukej jak narandom budou mizet naboje ale nebude strilet
         {
             if (direction == "left")
             {
@@ -58,8 +54,6 @@ namespace селюк
                 timerkulka.Stop();
                 timerkulka.Dispose();
                 kulka.Dispose();
-                timerkulka = null;
-                kulka = null;
             }
         }
     }

@@ -133,6 +133,36 @@ namespace селюк.Properties {
         /// <summary>
         ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap vlajkaČeskéRepubliky {
+            get {
+                object obj = ResourceManager.GetObject("vlajkaČeskéRepubliky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vlajkaUkrajiny {
+            get {
+                object obj = ResourceManager.GetObject("vlajkaUkrajiny", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vlajkaVelkeBritanie {
+            get {
+                object obj = ResourceManager.GetObject("vlajkaVelkeBritanie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledává lokalizovaný prostředek typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap zdown {
             get {
                 object obj = ResourceManager.GetObject("zdown", resourceCulture);

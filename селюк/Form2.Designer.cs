@@ -31,11 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             label1 = new Label();
             textBox1 = new TextBox();
-            button1 = new Button();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
+            pictureUkrajina = new PictureBox();
+            pictureBritanie = new PictureBox();
+            pictureCesko = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureUkrajina).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBritanie).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureCesko).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -64,18 +69,6 @@
             textBox1.TabIndex = 1;
             textBox1.Text = "Vítejte ve hře! Zde je detailní návod k ovládání postavičky:";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Black;
-            button1.ForeColor = Color.FromArgb(0, 192, 0);
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(77, 29);
-            button1.TabIndex = 7;
-            button1.Text = "ZPĚT";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // textBox2
             // 
             textBox2.BackColor = Color.Black;
@@ -99,7 +92,7 @@
             textBox3.Enabled = false;
             textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             textBox3.ForeColor = Color.FromArgb(103, 186, 36);
-            textBox3.Location = new Point(12, 448);
+            textBox3.Location = new Point(12, 459);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(1092, 50);
@@ -131,7 +124,40 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(127, 19);
             textBox5.TabIndex = 11;
-            textBox5.Text = "Олександр Іванов";
+            textBox5.Text = "Alexandr Ivanov";
+            // 
+            // pictureUkrajina
+            // 
+            pictureUkrajina.Image = Properties.Resources.vlajkaUkrajiny;
+            pictureUkrajina.Location = new Point(1046, 12);
+            pictureUkrajina.Name = "pictureUkrajina";
+            pictureUkrajina.Size = new Size(58, 34);
+            pictureUkrajina.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureUkrajina.TabIndex = 14;
+            pictureUkrajina.TabStop = false;
+            pictureUkrajina.Click += pictureUkrajina_Click;
+            // 
+            // pictureBritanie
+            // 
+            pictureBritanie.Image = Properties.Resources.vlajkaVelkeBritanie;
+            pictureBritanie.Location = new Point(982, 12);
+            pictureBritanie.Name = "pictureBritanie";
+            pictureBritanie.Size = new Size(58, 34);
+            pictureBritanie.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBritanie.TabIndex = 13;
+            pictureBritanie.TabStop = false;
+            pictureBritanie.Click += pictureBritanie_Click;
+            // 
+            // pictureCesko
+            // 
+            pictureCesko.Image = Properties.Resources.vlajkaČeskéRepubliky;
+            pictureCesko.Location = new Point(918, 12);
+            pictureCesko.Name = "pictureCesko";
+            pictureCesko.Size = new Size(58, 34);
+            pictureCesko.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureCesko.TabIndex = 12;
+            pictureCesko.TabStop = false;
+            pictureCesko.Click += pictureCesko_Click;
             // 
             // Form2
             // 
@@ -139,17 +165,22 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1116, 635);
+            Controls.Add(pictureUkrajina);
+            Controls.Add(pictureBritanie);
+            Controls.Add(pictureCesko);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
             Controls.Add(textBox3);
             Controls.Add(textBox2);
-            Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Enabled = false;
             ForeColor = Color.Black;
             Name = "Form2";
             Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)pictureUkrajina).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBritanie).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureCesko).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -158,10 +189,12 @@
 
         private Label label1;
         private TextBox textBox1;
-        private Button button1;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
+        private PictureBox pictureUkrajina;
+        private PictureBox pictureBritanie;
+        private PictureBox pictureCesko;
     }
 }

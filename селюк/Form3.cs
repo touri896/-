@@ -12,33 +12,25 @@ namespace селюк
 {
     public partial class Form3 : Form
     {
-
         bool left, right, up, down, gameOver;
-        string facing = "up";
+        string facing = "up"; 
         int zdravi = 100;
-        int rychlost = 10;
-        int naboje = 10;
-        int rychlostZombiku = 3;
+        int rychlost = 6;
+        int naboje = 15;
+        int rychlostZombiku = 2;
         int skore;
         Random randNum = new Random();
 
         List<PictureBox> zombiesList = new List<PictureBox>();
 
-
-
-
         public Form3()
         {
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            this.UpdateStyles();
+
             InitializeComponent();
             RestartujHru();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Show();
-            this.Close();
         }
 
         private void MainTimer(object sender, EventArgs e)
@@ -78,25 +70,19 @@ namespace селюк
             }
 
             foreach (Control x in this.Controls)
-            {
-
+            { 
                 if (x is PictureBox && (string)x.Tag == "naboje")
                 {
-
                     if (player.Bounds.IntersectsWith(x.Bounds))
                     {
                         this.Controls.Remove(x);
                         ((PictureBox)x).Dispose();
                         naboje += 5;
-
                     }
-
                 }
-
 
                 if (x is PictureBox && (string)x.Tag == "zombie")
                 {
-
                     if (player.Bounds.IntersectsWith(x.Bounds))
                     {
                         zdravi -= 1;
@@ -106,36 +92,30 @@ namespace селюк
                         x.Left -= rychlostZombiku;
                         ((PictureBox)x).Image = Properties.Resources.zleft;
                     }
-
                     if (x.Left < player.Left)
                     {
                         x.Left += rychlostZombiku;
                         ((PictureBox)x).Image = Properties.Resources.zright;
                     }
-
                     if (x.Top > player.Top)
                     {
                         x.Top -= rychlostZombiku;
                         ((PictureBox)x).Image = Properties.Resources.zup;
-
                     }
-
                     if (x.Top < player.Top)
                     {
                         x.Top += rychlostZombiku;
                         ((PictureBox)x).Image = Properties.Resources.zdown;
-
                     }
                 }
 
                 foreach (Control j in this.Controls)
                 {
-                    if (j is PictureBox && (string)j.Tag == "kulka" && x is PictureBox && (string)x.Tag == "zombie")     //kulka nebo naboj, uz si nevzpoménám 
+                    if (j is PictureBox && (string)j.Tag == "kulka" && x is PictureBox && (string)x.Tag == "zombie")
                     {
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
                             skore++;
-
                             this.Controls.Remove(j);
                             ((PictureBox)j).Dispose();
                             this.Controls.Remove(x);
@@ -148,12 +128,19 @@ namespace селюк
             }
         }
 
+        private bool isJumping = false;
+        private int jumpHeight = 30;
+        private int jumpSpeed = 5;
+        private int originalX;
+        private int originalY;
+
         private void KlavesaDolu(object sender, KeyEventArgs e)
         {
             if (gameOver == true)
             {
                 return;
             }
+
             if (e.KeyCode == Keys.Left)
             {
                 left = true;
@@ -182,10 +169,16 @@ namespace селюк
                 player.Image = Properties.Resources.down;
             }
 
-
-
+            if (e.KeyCode == Keys.ControlKey)
+            {
+                if (!isJumping)
+                {
+                    originalX = player.Left;
+                    originalY = player.Top;
+                    Jump();
+                }
+            }
         }
-
 
         private void KlavesaNahoru(object sender, KeyEventArgs e)
         {
@@ -214,7 +207,6 @@ namespace селюк
                 naboje--;
                 Strilet(facing);
 
-
                 if (naboje < 1)
                 {
                     SpawnNaboju();
@@ -227,6 +219,35 @@ namespace селюк
             }
         }
 
+        private void Jump()
+        {
+            isJumping = true;
+
+            int jumpDistance = 20;
+            int jumpHeight = 100;
+
+            if (facing == "up" && player.Top > jumpHeight)
+            {
+                player.Top -= jumpDistance;
+            }
+            else if (facing == "down" && player.Top + player.Height < this.ClientSize.Height - jumpHeight)
+            {
+                player.Top += jumpDistance;
+            }
+            else if (facing == "left" && player.Left > jumpHeight)
+            {
+                player.Left -= jumpDistance;
+            }
+            else if (facing == "right" && player.Left + player.Width < this.ClientSize.Width - jumpHeight)
+            {
+                player.Left += jumpDistance;
+            }
+
+            System.Threading.Thread.Sleep(10);
+
+            isJumping = false;
+        }
+
         private void Strilet(string direction)
         {
             Naboj vystrelitKulku = new Naboj();
@@ -235,8 +256,6 @@ namespace селюк
             vystrelitKulku.kulkaDoprava = player.Top + (player.Height / 2);
             vystrelitKulku.UdelejKulku(this);
         }
-
-
 
         private void SpawniZombiky()
         {
@@ -249,9 +268,6 @@ namespace селюк
             zombiesList.Add(zombie);
             this.Controls.Add(zombie);
             player.BringToFront();
-
-
-
         }
 
         private void SpawnNaboju()
@@ -263,12 +279,8 @@ namespace селюк
             naboje.Top = randNum.Next(60, this.ClientSize.Height - naboje.Height);
             naboje.Tag = "naboje";
             this.Controls.Add(naboje);
-
             naboje.BringToFront();
             player.BringToFront();
-
-
-
         }
 
         private void RestartujHru()
@@ -277,9 +289,7 @@ namespace селюк
 
             foreach (PictureBox i in zombiesList)
             {
-
                 this.Controls.Remove(i);
-
             }
 
             zombiesList.Clear();
@@ -288,7 +298,6 @@ namespace селюк
             {
                 SpawniZombiky();
             }
-
 
             left = false;
             right = false;
@@ -301,11 +310,6 @@ namespace селюк
             naboje = 10;
 
             GameTimer.Start();
-
-
         }
-
-
     }
-
 }

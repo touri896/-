@@ -129,7 +129,9 @@
 
 [Pokud zmáčknete více než jedno tlačítko najednou, například šipku doprava a šipku dolů, postavička se bude pohybovat diagonálně.]
 
-Mezerník: Pro vystřelení použijte tlačítko mezerníku. Postavička vystřelí projektil směrem, kterým se dívá. </value>
+Mezerník: Pro vystřelení použijte tlačítko mezerníku. Postavička vystřelí projektil směrem, kterým se dívá. 
+
+Skok: Pro skok použijte tlačítko Ctrl. Postavička vyskočí směrem, kterým se dívá</value>
   </data>
   <data name="textBox3.Text" xml:space="preserve">
     <value>Pamatujte si, že herní plocha může obsahovat překážky, kterým se musíte vyhnout, a nepřátele, které musíte porazit. Buďte opatrní a dobře si vybírejte směr pohybu a střelby, abyste dosáhli svých cílů a přežili ve hře.</value>

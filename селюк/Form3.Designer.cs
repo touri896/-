@@ -35,7 +35,6 @@
             pgZdravi = new ProgressBar();
             player = new PictureBox();
             GameTimer = new System.Windows.Forms.Timer(components);
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)player).BeginInit();
             SuspendLayout();
             // 
@@ -44,7 +43,7 @@
             lbNaboje.AutoSize = true;
             lbNaboje.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbNaboje.ForeColor = Color.FromArgb(103, 186, 36);
-            lbNaboje.Location = new Point(177, 20);
+            lbNaboje.Location = new Point(85, 20);
             lbNaboje.Name = "lbNaboje";
             lbNaboje.Size = new Size(83, 21);
             lbNaboje.TabIndex = 0;
@@ -96,30 +95,18 @@
             GameTimer.Interval = 20;
             GameTimer.Tick += MainTimer;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.Black;
-            button1.ForeColor = Color.FromArgb(0, 192, 0);
-            button1.Location = new Point(12, 9);
-            button1.Name = "button1";
-            button1.Size = new Size(77, 29);
-            button1.TabIndex = 6;
-            button1.Text = "ZPĚT";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1116, 635);
-            Controls.Add(button1);
             Controls.Add(player);
             Controls.Add(pgZdravi);
             Controls.Add(lbZdravi);
             Controls.Add(lbSkore);
             Controls.Add(lbNaboje);
+            KeyPreview = true;
             Name = "Form3";
             Text = "Form3";
             KeyDown += KlavesaDolu;
@@ -137,6 +124,5 @@
         private ProgressBar pgZdravi;
         private PictureBox player;
         private System.Windows.Forms.Timer GameTimer;
-        private Button button1;
     }
 }
