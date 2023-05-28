@@ -13,7 +13,7 @@ namespace селюк
     public partial class Form3 : Form
     {
         bool left, right, up, down, gameOver;
-        string facing = "up"; 
+        string facing = "up";
         int zdravi = 100;
         int rychlost = 6;
         int naboje = 15;
@@ -70,7 +70,7 @@ namespace селюк
             }
 
             foreach (Control x in this.Controls)
-            { 
+            {
                 if (x is PictureBox && (string)x.Tag == "naboje")
                 {
                     if (player.Bounds.IntersectsWith(x.Bounds))

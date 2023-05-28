@@ -13,7 +13,7 @@ namespace селюк
 
         private void btStart_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             // Vytvořím si objekt s form2
             Form3 form3 = new Form3();
             form3.Show();
@@ -21,7 +21,7 @@ namespace селюк
 
         private void btOvladani_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             // Vytvořím si objekt s form2
             Form2 form2 = new Form2();
             form2.Show();

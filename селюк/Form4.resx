@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="textBox2.Text" xml:space="preserve">
+  <data name="label3.Text" xml:space="preserve">
     <value>
 Šipka nahoru: Použijte toto tlačítko pro pohyb postavičky nahoru po herní ploše. 
 
@@ -131,9 +131,11 @@
 
 Mezerník: Pro vystřelení použijte tlačítko mezerníku. Postavička vystřelí projektil směrem, kterým se dívá. 
 
-Skok: Pro skok použijte tlačítko Ctrl. Postavička vyskočí směrem, kterým se dívá</value>
+Skok: Pro skok použijte tlačítko Ctrl. Postavička vyskočí směrem, kterým se dívá
+</value>
   </data>
-  <data name="textBox3.Text" xml:space="preserve">
-    <value>Pamatujte si, že herní plocha může obsahovat překážky, kterým se musíte vyhnout, a nepřátele, které musíte porazit. Buďte opatrní a dobře si vybírejte směr pohybu a střelby, abyste dosáhli svých cílů a přežili ve hře.</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Pamatujte si, že herní plocha může obsahovat překážky, kterým se musíte vyhnout, a nepřátele, které musíte porazit. 
+Buďte opatrní a dobře si vybírejte směr pohybu a střelby, abyste dosáhli svých cílů a přežili ve hře.</value>
   </data>
 </root>

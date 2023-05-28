@@ -35,6 +35,7 @@
             pgZdravi = new ProgressBar();
             player = new PictureBox();
             GameTimer = new System.Windows.Forms.Timer(components);
+            btZpet = new Button();
             ((System.ComponentModel.ISupportInitialize)player).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             lbNaboje.AutoSize = true;
             lbNaboje.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbNaboje.ForeColor = Color.FromArgb(103, 186, 36);
-            lbNaboje.Location = new Point(85, 20);
+            lbNaboje.Location = new Point(95, 20);
             lbNaboje.Name = "lbNaboje";
             lbNaboje.Size = new Size(83, 21);
             lbNaboje.TabIndex = 0;
@@ -95,12 +96,25 @@
             GameTimer.Interval = 20;
             GameTimer.Tick += MainTimer;
             // 
+            // btZpet
+            // 
+            btZpet.BackColor = Color.Black;
+            btZpet.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btZpet.ForeColor = Color.FromArgb(0, 192, 0);
+            btZpet.Location = new Point(12, 12);
+            btZpet.Name = "btZpet";
+            btZpet.Size = new Size(75, 29);
+            btZpet.TabIndex = 22;
+            btZpet.Text = "Zpět";
+            btZpet.UseVisualStyleBackColor = false;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1116, 635);
+            Controls.Add(btZpet);
             Controls.Add(player);
             Controls.Add(pgZdravi);
             Controls.Add(lbZdravi);
@@ -124,5 +138,6 @@
         private ProgressBar pgZdravi;
         private PictureBox player;
         private System.Windows.Forms.Timer GameTimer;
+        private Button btZpet;
     }
 }
