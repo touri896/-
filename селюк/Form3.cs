@@ -15,13 +15,14 @@ namespace селюк
         bool left, right, up, down, gameOver;
         string facing = "up";
         int zdravi = 100;
-        int rychlost = 6;
+        int rychlost = 10;
         int naboje = 15;
         int rychlostZombiku = 2;
         int skore;
         Random randNum = new Random();
 
         List<PictureBox> zombiesList = new List<PictureBox>();
+        private Label lbLevel1; // Deklarace labelu
 
         public Form3()
         {
@@ -32,7 +33,14 @@ namespace селюк
             InitializeComponent();
             RestartujHru();
 
-            
+            // Inicializace a konfigurace labelu lbLevel1
+            lbLevel1 = new Label();
+            lbLevel1.Text = ""; // Text labelu při spuštění aplikace
+            lbLevel1.Font = new Font("Arial", 14, FontStyle.Bold);
+            lbLevel1.ForeColor = Color.Red;
+            lbLevel1.AutoSize = true;
+            lbLevel1.Location = new Point(150, 20); // Umístění labelu na formuláři
+            this.Controls.Add(lbLevel1); // Přidání labelu do kolekce ovládacích prvků formuláře
         }
 
         private void MainTimer(object sender, EventArgs e)
@@ -48,8 +56,8 @@ namespace селюк
                 GameTimer.Stop();
             }
 
-            lbNaboje.Text = "Náboje:" + naboje;
-            lbSkore.Text = "Počet zabití:" + skore;
+            lbNaboje.Text = "Náboje: " + naboje;
+            lbSkore.Text = "Počet zabití: " + skore;
 
             if (left == true && player.Left > 0)
             {
@@ -128,8 +136,14 @@ namespace селюк
                     }
                 }
             }
+
+            if (skore >= 25)
+            {
+                lbLevel1.Text = "DONBAS LEVEL"; // Nastavení textu labelu
+                rychlostZombiku = 5;
+            }
         }
-        
+
         private bool isJumping = false;
         private int jumpHeight = 30;
         private int jumpSpeed = 5;
