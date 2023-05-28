@@ -89,7 +89,7 @@ namespace селюк
                         ((PictureBox)x).Dispose();
                         naboje += 5;
                     }
-                }
+                } //if intersects width, than select new way possiblr
 
                 if (x is PictureBox && (string)x.Tag == "zombie")
                 {
@@ -200,6 +200,11 @@ namespace селюк
                 Form1 form1 = new Form1();
                 form1.Show();
                 this.Close();
+            }
+            if (e.KeyCode == Keys.Enter && gameOver == true)
+            {
+                RestartujHru();
+                lbLevel1.Text = ""; // Skrytí textu labelu lbLevel1
             }
         }
 
