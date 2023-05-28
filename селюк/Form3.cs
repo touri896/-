@@ -23,7 +23,7 @@ namespace селюк
 
         List<PictureBox> zombiesList = new List<PictureBox>();
         private Label lbLevel1; // Deklarace labelu
-
+        
         public Form3()
         {
             this.DoubleBuffered = true;
@@ -40,7 +40,7 @@ namespace селюк
             lbLevel1.ForeColor = Color.Red;
             lbLevel1.AutoSize = true;
             lbLevel1.Location = new Point(150, 20); // Umístění labelu na formuláři
-            this.Controls.Add(lbLevel1); // Přidání labelu do kolekce ovládacích prvků formuláře
+            this.Controls.Add(lbLevel1); // Přidání labelu do kolekce ovládacích prvků formuláře 3LEVELY ASI NEBO 4 IDK HLAVNI, MED, HARD, DONBAS
         }
 
         private void MainTimer(object sender, EventArgs e)
@@ -48,6 +48,7 @@ namespace селюк
             if (zdravi > 1)
             {
                 pgZdravi.Value = zdravi;
+                pgZdravi.ForeColor = Color.Blue;
             }
             else
             {
