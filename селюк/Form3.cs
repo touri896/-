@@ -31,6 +31,8 @@ namespace селюк
 
             InitializeComponent();
             RestartujHru();
+
+            
         }
 
         private void MainTimer(object sender, EventArgs e)
@@ -127,7 +129,7 @@ namespace селюк
                 }
             }
         }
-
+        
         private bool isJumping = false;
         private int jumpHeight = 30;
         private int jumpSpeed = 5;
@@ -177,6 +179,13 @@ namespace селюк
                     originalY = player.Top;
                     Jump();
                 }
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                Form1 form1 = new Form1();
+                form1.Show();
+                this.Close();
             }
         }
 
