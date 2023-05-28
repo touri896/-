@@ -134,8 +134,4 @@ Mezerník: Pro vystřelení použijte tlačítko mezerníku. Postavička vystře
 Skok: Pro skok použijte tlačítko Ctrl. Postavička vyskočí směrem, kterým se dívá
 </value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Pamatujte si, že herní plocha může obsahovat překážky, kterým se musíte vyhnout, a nepřátele, které musíte porazit. 
-Buďte opatrní a dobře si vybírejte směr pohybu a střelby, abyste dosáhli svých cílů a přežili ve hře.</value>
-  </data>
 </root>

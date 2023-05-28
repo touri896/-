@@ -68,7 +68,7 @@ namespace селюк
             // Aktualizovat textové zdroje na ostatních formulářích (pokud existují)
 
             // Příklad použití:
-            // form2.UpdateLanguage();
+            
 
             // Opakujte tyto kroky pro všechny prvky a formuláře, které chcete aktualizovat podle jazyka.
         }

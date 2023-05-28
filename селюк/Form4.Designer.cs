@@ -39,6 +39,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureCesko).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBritanie).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureUkrajina).BeginInit();
@@ -129,11 +130,11 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(103, 186, 36);
-            label4.Location = new Point(108, 472);
+            label4.Location = new Point(74, 471);
             label4.Name = "label4";
-            label4.Size = new Size(902, 42);
+            label4.Size = new Size(902, 21);
             label4.TabIndex = 24;
-            label4.Text = resources.GetString("label4.Text");
+            label4.Text = "Pamatujte si, že herní plocha může obsahovat překážky, kterým se musíte vyhnout, a nepřátele, které musíte porazit. \r\n";
             // 
             // label5
             // 
@@ -157,12 +158,24 @@
             label6.TabIndex = 26;
             label6.Text = "Alexandr Ivanov";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.FromArgb(103, 186, 36);
+            label7.Location = new Point(143, 492);
+            label7.Name = "label7";
+            label7.Size = new Size(756, 21);
+            label7.TabIndex = 27;
+            label7.Text = "Buďte opatrní a dobře si vybírejte směr pohybu a střelby, abyste dosáhli svých cílů a přežili ve hře.";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1116, 635);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -193,5 +206,6 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label7;
     }
 }
