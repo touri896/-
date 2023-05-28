@@ -201,11 +201,11 @@ namespace селюк
                 form1.Show();
                 this.Close();
             }
-            if (e.KeyCode == Keys.Enter && gameOver == true)
-            {
-                RestartujHru();
-                lbLevel1.Text = ""; // Skrytí textu labelu lbLevel1
-            }
+            ////if (e.KeyCode == Keys.Enter && gameOver == true)
+            ////{
+            ////    RestartujHru();
+            ////    lbLevel1.Text = ""; // Skrytí textu labelu lbLevel1
+            ////}
         }
 
         private void KlavesaNahoru(object sender, KeyEventArgs e)
