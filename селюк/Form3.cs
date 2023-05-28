@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,9 +24,16 @@ namespace селюк
 
         List<PictureBox> zombiesList = new List<PictureBox>();
         private Label lbLevel1; // Deklarace labelu
-        
+        private Label lbLevel2;
+        private Label lbLevel3;
+        private Label lbLevel4;
+
         public Form3()
         {
+            lbLevel1 = new Label();
+            lbLevel2 = new Label();
+            lbLevel3 = new Label();
+            lbLevel4 = new Label();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             this.UpdateStyles();
@@ -34,13 +42,42 @@ namespace селюк
             RestartujHru();
 
             // Inicializace a konfigurace labelu lbLevel1
-            lbLevel1 = new Label();
-            lbLevel1.Text = ""; // Text labelu při spuštění aplikace
+            lbLevel1.Text = "EASY LEVEL";
             lbLevel1.Font = new Font("Arial", 14, FontStyle.Bold);
             lbLevel1.ForeColor = Color.Red;
             lbLevel1.AutoSize = true;
-            lbLevel1.Location = new Point(150, 20); // Umístění labelu na formuláři
-            this.Controls.Add(lbLevel1); // Přidání labelu do kolekce ovládacích prvků formuláře 3LEVELY ASI NEBO 4 IDK HLAVNI, MED, HARD, DONBAS
+            lbLevel1.Location = new Point(150, 20);
+            this.Controls.Add(lbLevel1);
+
+            // Inicializace a konfigurace labelu lbLevel2
+            lbLevel2.Text = "MEDIUM LEVEL";
+            lbLevel2.Font = new Font("Arial", 14, FontStyle.Bold);
+            lbLevel2.ForeColor = Color.Red;
+            lbLevel2.AutoSize = true;
+            lbLevel2.Location = new Point(150, 20);
+            this.Controls.Add(lbLevel2);
+
+            // Inicializace a konfigurace labelu lbLevel3
+            lbLevel3.Text = "HARD LEVEL";
+            lbLevel3.Font = new Font("Arial", 14, FontStyle.Bold);
+            lbLevel3.ForeColor = Color.Red;
+            lbLevel3.AutoSize = true;
+            lbLevel3.Location = new Point(150, 20);
+            this.Controls.Add(lbLevel3);
+
+            // Inicializace a konfigurace labelu lbLevel4
+            lbLevel4.Text = "DONBAS LEVEL";
+            lbLevel4.Font = new Font("Arial", 14, FontStyle.Bold);
+            lbLevel4.ForeColor = Color.Red;
+            lbLevel4.AutoSize = true;
+            lbLevel4.Location = new Point(150, 20);
+            this.Controls.Add(lbLevel4);
+
+            lbLevel1.Visible = false;
+            lbLevel2.Visible = false;
+            lbLevel3.Visible = false;
+            lbLevel4.Visible = false;
+
         }
 
         private void MainTimer(object sender, EventArgs e)
@@ -137,10 +174,35 @@ namespace селюк
                     }
                 }
             }
-
-            if (skore >= 25)
+            if (skore >= 0 && skore < 20)
             {
-                lbLevel1.Text = "DONBAS LEVEL"; // Nastavení textu labelu
+                lbLevel1.Visible = true;
+                lbLevel2.Visible = false;
+                lbLevel3.Visible = false;
+                lbLevel4.Visible = false;
+            }
+            else if (skore >= 20 && skore < 40)
+            {
+                lbLevel1.Visible = false;
+                lbLevel2.Visible = true;
+                lbLevel3.Visible = false;
+                lbLevel4.Visible = false;
+                rychlostZombiku = 3;
+            }
+            else if (skore >= 40 && skore < 60)
+            {
+                lbLevel1.Visible = false;
+                lbLevel2.Visible = false;
+                lbLevel3.Visible = true;
+                lbLevel4.Visible = false;
+                rychlostZombiku = 4;
+            }
+            else if (skore >= 60)
+            {
+                lbLevel1.Visible = false;
+                lbLevel2.Visible = false;
+                lbLevel3.Visible = false;
+                lbLevel4.Visible = true;
                 rychlostZombiku = 5;
             }
         }
@@ -195,6 +257,7 @@ namespace селюк
                     Jump();
                 }
             }
+            
 
             if (e.KeyCode == Keys.Escape)
             {
@@ -334,6 +397,12 @@ namespace селюк
             up = false;
             down = false;
             gameOver = false;
+
+            // Skrýt všechny level labely
+            lbLevel1.Visible = false;
+            lbLevel2.Visible = false;
+            lbLevel3.Visible = false;
+            lbLevel4.Visible = false;
 
             zdravi = 100;
             skore = 0;
