@@ -48,7 +48,7 @@ namespace селюк
             textBox2.Text = Localization.GetText("textBox2", languageCode);
             textBox3.Text = Localization.GetText("textBox3", languageCode);
             textBox4.Text = Localization.GetText("textBox4", languageCode);
-            textBox5.Text = Localization.GetText("textBox5", languageCode);
+            textBox5.Text = Localization.GetText("textBox5", languageCode); //hh
 
         }
 
