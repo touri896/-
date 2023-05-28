@@ -12,7 +12,7 @@ namespace селюк
 {
     public partial class Form3 : Form
     {
-        bool left, right, up, down, gameOver;
+        bool left, right, up, down, gameOver;  //if score 100 tak ПЕРЕМОГА 
         string facing = "up";
         int zdravi = 100;
         int rychlost = 10;
@@ -244,6 +244,7 @@ namespace селюк
             if (e.KeyCode == Keys.Enter && gameOver == true)
             {
                 RestartujHru();
+                lbLevel1.Text = ""; // Skrytí textu labelu lbLevel1
             }
         }
 
@@ -336,7 +337,7 @@ namespace селюк
             zdravi = 100;
             skore = 0;
             naboje = 10;
-
+            rychlostZombiku = 2;
             GameTimer.Start();
         }
     }
