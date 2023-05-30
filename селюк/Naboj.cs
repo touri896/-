@@ -12,11 +12,11 @@ namespace селюк
 
         private int rychlost = 5;
         private PictureBox kulka = new PictureBox();
-        private System.Windows.Forms.Timer timerkulka = new System.Windows.Forms.Timer(); //neni problem v timeru? jj ja nevim no XD
+        private System.Windows.Forms.Timer timerkulka = new System.Windows.Forms.Timer(); 
 
-        public void UdelejKulku(Form form) //co mam delat s tema picture boxama jak se sekaj 
+        public void UdelejKulku(Form form)  
         {
-            kulka.BackColor = Color.Orange;  //xxxd jako me to taky napadlo no 
+            kulka.BackColor = Color.Orange;  
             kulka.Size = new Size(5, 5);
             kulka.Tag = "kulka";
             kulka.Left = kulkaDoleva;
@@ -30,7 +30,7 @@ namespace селюк
             timerkulka.Enabled = true;
         }
          
-        private void TimerkulkaEvent(object sender, EventArgs e) //shamoona  kdekoliv, narandom to prestane fungovat. ted to pustim a koukej jak narandom budou mizet naboje ale nebude strilet
+        private void TimerkulkaEvent(object sender, EventArgs e) 
         {
             if (direction == "left")
             {

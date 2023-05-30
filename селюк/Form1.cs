@@ -13,8 +13,8 @@ namespace селюк
 
         private void btStart_Click(object sender, EventArgs e)
         {
-            this.Hide();  //if close, than open that window and add another
-            // Vytvořím si objekt s form2
+            this.Hide();  
+            // Vytvořím si objekt s form3
             Form3 form3 = new Form3();
             form3.Show();
         }
@@ -53,60 +53,49 @@ namespace селюк
         private void SetLanguage(string languageCode)
         {
             // Nastavit aktuální jazyk aplikace
-
-            // Příklad použití: 
             Localization.SetCurrentLanguage(languageCode);
 
-            // Aktualizovat textové zdroje na formuláři
-
-            // Příklad použití:
+            // Aktualizovat textové zdroje na formuláři           
             btStart.Text = Localization.GetText("btStart", languageCode);
             btOvladani.Text = Localization.GetText("btOvladani", languageCode);
-            btKonec.Text = Localization.GetText("btKonec", languageCode);
-            // ...
-
-            // Aktualizovat textové zdroje na ostatních formulářích (pokud existují)
-
-            // Příklad použití:
-            
-
-            // Opakujte tyto kroky pro všechny prvky a formuláře, které chcete aktualizovat podle jazyka.
+            btKonec.Text = Localization.GetText("btKonec", languageCode);                   
         }
 
         public static class Localization
         {
             private static Dictionary<string, string> csTexts = new Dictionary<string, string>
             {
+                //textové zdroje pro češtinu
                 { "btStart", "HRÁT" },
                 { "btOvladani", "OVLÁDÁNÍ" },
-                { "btKonec", "KONEC" },
-                // Další textové zdroje pro češtinu
+                { "btKonec", "KONEC" },   
             };
 
             private static Dictionary<string, string> enTexts = new Dictionary<string, string>
             {
+                //textové zdroje pro angličtinu
                 { "btStart", "PLAY" },
                 { "btOvladani", "CONTROLS" },
                 { "btKonec", "END" },
-                // Další textové zdroje pro angličtinu
             };
 
-            private static Dictionary<string, string> ukTexts = new Dictionary<string, string>     //OKEJ TED KOD HRY     
+            private static Dictionary<string, string> ukTexts = new Dictionary<string, string>      
             {
+                //textové zdroje pro ukrajinštinu
                 { "btStart", "ГРАТИ" },
                 { "btOvladani", "КЕРУВАННЯ" },
                 { "btKonec", "КІНЕЦЬ" },
-                // Další textové zdroje pro ukrajinštinu
+                
             };
 
             public static void SetCurrentLanguage(string languageCode)
             {
-                // Nastavit aktuální jazyk na základě languageCode
+                // Nastavit aktuální jazyk 
             }
 
             public static string GetText(string key, string languageCode)
             {
-                // Vrátit překlad pro daný klíč a aktuální jazyk
+                // Vrátit překlad
                 switch (languageCode)
                 {
                     case "cs":

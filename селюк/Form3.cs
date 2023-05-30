@@ -14,6 +14,7 @@ namespace селюк
     public partial class Form3 : Form
     {
         bool left, right, up, down, gameOver;  //if score 100 tak ПЕРЕМОГА 
+        bool Jumping = false;
         string facing = "up";
         int zdravi = 100;
         int rychlost = 10;
@@ -30,16 +31,17 @@ namespace селюк
 
         public Form3()
         {
-            lbLevel1 = new Label();
-            lbLevel2 = new Label();
-            lbLevel3 = new Label();
-            lbLevel4 = new Label();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
             this.UpdateStyles();
 
             InitializeComponent();
             RestartujHru();
+
+            lbLevel1 = new Label();
+            lbLevel2 = new Label();
+            lbLevel3 = new Label();
+            lbLevel4 = new Label();
 
             // Inicializace a konfigurace labelu lbLevel1
             lbLevel1.Text = "EASY LEVEL";
@@ -85,7 +87,6 @@ namespace селюк
             if (zdravi > 1)
             {
                 pgZdravi.Value = zdravi;
-                pgZdravi.ForeColor = Color.Blue;
             }
             else
             {
@@ -119,7 +120,7 @@ namespace селюк
 
             foreach (Control x in this.Controls)
             {
-                if (x is PictureBox && (string)x.Tag == "naboje")
+                if (x is PictureBox && (string)x.Tag == "naboje") //zbirani nabojů
                 {
                     if (player.Bounds.IntersectsWith(x.Bounds))
                     {
@@ -129,7 +130,7 @@ namespace селюк
                     }
                 } //if intersects width, than select new way possiblr
 
-                if (x is PictureBox && (string)x.Tag == "zombie")
+                if (x is PictureBox && (string)x.Tag == "zombie")  
                 {
                     if (player.Bounds.IntersectsWith(x.Bounds))
                     {
@@ -159,7 +160,7 @@ namespace селюк
 
                 foreach (Control j in this.Controls)
                 {
-                    if (j is PictureBox && (string)j.Tag == "kulka" && x is PictureBox && (string)x.Tag == "zombie")
+                    if (j is PictureBox && (string)j.Tag == "kulka" && x is PictureBox && (string)x.Tag == "zombie")   
                     {
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
@@ -174,6 +175,7 @@ namespace селюк
                     }
                 }
             }
+
             if (skore >= 0 && skore < 20)
             {
                 lbLevel1.Visible = true;
@@ -207,7 +209,6 @@ namespace селюк
             }
         }
 
-        private bool isJumping = false;
         private int jumpHeight = 30;
         private int jumpSpeed = 5;
         private int originalX;
@@ -250,7 +251,7 @@ namespace селюк
 
             if (e.KeyCode == Keys.ControlKey)
             {
-                if (!isJumping)
+                if (!Jumping)
                 {
                     originalX = player.Left;
                     originalY = player.Top;
@@ -264,12 +265,7 @@ namespace селюк
                 Form1 form1 = new Form1();
                 form1.Show();
                 this.Close();
-            }
-            ////if (e.KeyCode == Keys.Enter && gameOver == true)
-            ////{
-            ////    RestartujHru();
-            ////    lbLevel1.Text = ""; // Skrytí textu labelu lbLevel1
-            ////}
+            }           
         }
 
         private void KlavesaNahoru(object sender, KeyEventArgs e)
@@ -314,7 +310,7 @@ namespace селюк
 
         private void Jump()
         {
-            isJumping = true;
+            Jumping = true;
 
             int jumpDistance = 20;
             int jumpHeight = 100;
@@ -338,7 +334,7 @@ namespace селюк
 
             System.Threading.Thread.Sleep(10);
 
-            isJumping = false;
+            Jumping = false;
         }
 
         private void Strilet(string direction)
